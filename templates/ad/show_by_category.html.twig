@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails annonce
+{% endblock %}
+
+{% block stylesheets %}<link href="{{ asset('css/style_search.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+
+		<div class="search_results">
+
+			<h2>Annonces catégorie
+				{{ category.title }}
+			</h2>
+
+			{% if(adsSubCat is not empty) %}
+				<section class="ads">
+					<div class="cards">
+
+						{% for ads in adsSubCat %}
+							{% for ad in ads %}
+
+								<a class="card shadow" href="{{ path('ad_show_one', {'id' : ad.id} ) }}">
+
+									<div class="ad_img">
+										<img src="{{ asset('img/ads/' ~ ad.imageName ) }}" alt="Image {{ ad.title }}">
+									</div>
+
+									<div class="ad_txt">
+										<h2>{{ ad.title }}</h2>
+
+										<div class="ad_txt_details">
+											<span>
+												<i class="fas fa-map-marker-alt"></i>
+												{{ ad.city.department.number }}
+											</span>
+											<span>
+												<i class="far fa-clock"></i>
+												{{ ad.createdAt | date('d/m/y') }}
+											</span>
+										</div>
+									</div>
+
+								</a>
+
+							{% endfor %}
+						{% endfor %}
+
+					</div>
+
+				</section>
+			{% else %}
+				<p>Désolé, il n'y a aucun résultat à afficher, essayez avec une autre orthographe, ou un simple mot clé.</p>
+			{% endif %}
+
+
+		</div>
+
+	</main>
+{% endblock %}

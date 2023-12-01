@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+								           and uncomment the following Encore helpers to start using Symfony UX #}
+
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('css/style_nav.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('css/style_footer.css') }}" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
+
+
+		{% block stylesheets %}
+			<link href="{{ asset('css/style_home.css') }}" rel="stylesheet"/>
+		{% endblock %}
+
+	</head>
+
+	<body>
+		{% include('_navbar.html.twig') %}
+		{% block body %}
+		<main>
+		<h1>Conditions générales d'utilisation</h1>
+		<pre><p> 
+		1. Mentions légales
+		Les propriétaires et concepteurs du site, chargé de son développement sont :
+		Sonia, Maria, Soukaina, Amalia.
+		Le site est hébergé chez OVH Sarl:
+		OVH
+		2 rue kellerman
+		BP 80157
+		59100 Roubaix <br>
+		2. Définitions
+		Utilisateur : désigne toute personne navigant sur le site ou utilisant un des services proposé par le site
+		Membre : désigne toute personne possédant un compte sur le site
+		Donneur : membre qui dépose des annonces sur le site, qui donne ses biens
+		Preneur : membre qui sollicite des dons en contactant le donneur
+		3. Objet<br>
+		Les présentes « Conditions Générales d'Utilisation » ont pour objet l'encadrement juridique des modalités de mise à disposition des services de donnons.org et leur utilisation.
+		3.1 Services proposés par donner.fr<br>
+		Donner.fr est un site de petites annonces de dons d'objets et de dons alimentaires. Ceux-ci sont disponibles sur le site et proposés par les membres inscrits qui souhaitent les donner gratuitement.
+		Les personnes intéressées (les preneurs) peuvent effectuer des recherches sur le site, et solliciter des donneurs. Tous les objets et produits alimentaires doivent être cédés gratuitement.
+		Les preneurs peuvent programmer des recherches afin d'être automatiquement avertis des nouveaux dons par email ou notification “push” (message d’alerte sur votre compte).
+		3.2 Annonces publicitaires et promotionnelles<br>
+		Donner.fr se réserve le droit exclusif d'insérer sur toute page et dans toute communication aux utilisateurs, des messages publicitaires ou promotionnels sous la forme et les conditions qu’il jugera appropriées.
+		3.3 Gratuité du service<br>
+		La navigation et l’ouverture d’un compte sur donnons.org sont totalement gratuites. A aucun moment il ne vous sera demandé de payer pour cette utilisation.
+		Si quelqu'un venait à vous demander de l'argent au nom de donner.fr, nous vous remercions de nous le signaler immédiatement.
+		3.4 Acceptation des CGU (Conditions Générales d’Utilisation)
+		En s'inscrivant sur donner.fr, l'utilisateur confirme avoir lu et accepté les conditions générales d'utilisation, en cochant une case dans le formulaire d'inscription.
+		Les conditions générales d'utilisation doivent être acceptées par tout Utilisateur souhaitant accéder au site. Cette acceptation ne peut être que pleine et entière. Dans le cas contraire, l'utilisateur s'engage à ne pas utiliser ou visiter ce site.
+		4. Accès aux services<br>
+		4.1 Création d'un compte<br>
+		Pour utiliser le service, afin d'être identifié sur le site, l'utilisateur doit créer un compte.
+		Sont nécessaires : son adresse email, un pseudo, un mot de passe ainsi que sa localisation.
+		L’indication de votre ville est indispensable pour situer le don, mais aussi pour situer le preneur lorsqu’il vous sollicite. La ville du preneur ou du donneur sont des éléments nécessaires pour l'échange du don.
+		L'utilisateur garantit que toutes les informations qu'il donne dans le formulaire d'inscription sont exactes et il s'engage à :
+		mettre à jour ses informations en cas de modification(s) de celles-ci
+		Ne créer qu'un seul compte
+		Ne pas partager son compte avec une ou plusieurs personnes
+		Ne pas publier de pseudo ou photo à caractère sexuel, provoquant ou non approprié
+		Ne pas utiliser une adresse email ou un numéro de téléphone comme pseudo
+		Donner.fr supprime automatiquement les comptes correspondant à un des critères suivant :
+		Compte non validé dans les 7 jours
+		Donner.fr ne garantit pas la continuité de service pour les utilisateurs de VPN, Proxy et d’adresses mails jetables / temporaires.
+		4.2. Adresse email non joignable et modification de vos préférences<br>
+		Donner.fr a mis en place des dispositifs qui permettent de lutter contre le spam (SPF, DKIM, DMARC) et de garantir que l'émetteur des mails adressés à l’administrateur n'est pas usurpé. Ce système de signature d'email est utilisé par les grands fournisseurs de mails tels que gmail, yahoo, outlook, hotmail... Ils vérifient, à la réception des messages, qu'il n'y a pas eu d'anomalie dans la transmission du message.
+		Le mécanisme de redirection d'un fournisseur à l'autre n'est pas autorisé dans ce cas d'échanges stricts et contrôlés d'email. Exemple : nous vous envoyons un email sur utilisateur@hotmail.fr et vous avez défini une redirection vers utilisateur@gmail.com. Résultat, gmail enverra un refus à hotmail, l'intermédiaire et nous serons informés de l'indisponibilité de vous faire parvenir le message et vous n'aurez pas non plus reçu votre email.
+		En utilisant ce type de service, vous risquez donc de ne pas recevoir votre mail de confirmation d’ouverture de compte, nos communications ou vos notifications. C’est pourquoi nous vous conseillons vivement de renseigner votre adresse mail principale et non une adresse de redirection.
+		Quelle que soit la situation, tant pour que vous puissiez continuer à recevoir nos messages et que pour conserver notre légitimité d'envoi d'email auprès des fournisseurs, nous nous réservons le droit de modifier, sur votre profil, votre adresse email transitoire par votre email final.
+		En cas de changement de votre Email sur notre site, vous recevrez un message sur votre adresse finale.
+		4.3. Désinscription du site et suppression de compte<br>
+		Le membre peut se désinscrire des services à tout moment, en se rendant dans son compte puis en cliquant sur “supprimer mon compte”.
+		Le compte sera, dans un premier temps, inactif pendant 15 jours et pourra être réactivé à tout moment durant cette période.
+		Passé ce délai, vos données seront anonymisées et la suppression du compte sera définitive et irrévocable.
+		5. Règles d'utilisation du service<br>
+		5.1. Publications par l’utilisateur<br>
+		Les membres de ce site sont responsables des messages qu'ils envoient, du contenu de leur profil, des annonces et photos qu'ils publient ou de toutes autres informations qu'ils décident de transmettre à partir du site ou en dehors du site.
+		Photos de compte et d'annonces
+		Lors de la création d'un compte ou d'une annonce, le membre a la possibilité d'insérer des photos. Certaines règles devront être respectées. En publiant une photo sur le site donner.fr, le membre s'engage à ne pas publier de photos:
+		Qui ne proviendraient pas de lui-même
+		Pour lesquelles il n'a pas de droit d'auteur ou d'utilisation. Par exemple: des dessins animés, des célébrités, des photos tirées d'un magazine ou d'internet en général
+		Exposant de la nudité, ou tout contenu à caractère sexuel, exhibitionniste, provocateur, indécent, obscène ou inapproprié
+		Affichant l'adresse d'un autre site web, d'une personne, d’un email, le nom d'une société, un numéro de téléphone, adresse ou autres informations personnelles
+		Affichant des armes ou tout contenu relatif à de la violence
+		Donner.fr se réserve le droit d'effacer, sans préavis, toute photo qui lui semble inappropriée.
+		5.2 Publication d’annonces et de messages<br>
+		En utilisant les services de donnons.org, le membre s'engage à respecter les règles de conduite suivantes :
+		Ne pas communiquer les informations que vous recevez des autres membres
+		Ne pas communiquer d'informations diffamatoires ou qui peuvent d'une manière ou d'une autre porter atteinte à la réputation d'un individu, que ce soit sur internet ou en dehors
+		Ne pas être grossier, tenir des propos racistes ou discriminatoires, harceler les autres membres, les menacer, les moquer ou les insulter
+		Ne pas solliciter des membres afin de les diriger vers un site similaire à donnons.org ou pour une quelconque raison commerciale
+		Ne pas publier d'informations fausses ou trompeuses ou présentant des activités illégales
+		Ne pas publier d'annonces de dons interdits sur le site
+		Ne pas publier d'annonces en double ou similaires à un don qu’il a précédemment publié
+		Ne pas usurper l'identité d'un autre utilisateur ou personne
+		Accepter la charte du donneur lors de sa première annonce et la charte du preneur lors de sa première sollicitation.
+		5.3 Responsabilité du donneur<br>
+		Le donneur, en publiant une annonce, est responsable du don qu’il cède au preneur.
+		Concernant les dons alimentaires, le donneur s’engage à ne pas donner si les dons ne respectent pas les règles définies par le site (voir la liste des dons interdits).
+		Le site de la DGCCRF permet au donneur d’être informé des produits retirés du marché.
+		Le donneur garantit de ne pas donner d’objet dangereux ou de don alimentaire dont la DLC (Date Limite de Consommation) est dépassée. Il garantit de bonnes conditions de stockage et de transport.
+		5.4 Responsabilité du preneur<br>
+		Si un don vous semble suspect, ne prenez pas de risque en le mangeant et n'hésitez pas à nous le signaler.
+		5.5 Eléments d'évaluation entre membres
+		Le site, par son principe de fonctionnement utilisant la localisation géographique, permet des échanges simples et rapides entre membres d’un même secteur. Le retour d'expérience entre utilisateurs peut aider les donneurs et preneurs à faire leur choix.
+		Des éléments publics de statistiques tels; la ville d’habitation, les dons actifs et les évaluations figureront donc dans le détail du profil d'un utilisateur.
+		6. Propriété intellectuelle<br>
+		6.1 Protection du contenu du site donner.fr
+		Toute reproduction ou représentation, intégrale ou partielle, effectuée sans le consentement de donnons.org, est illicite et constitue une contrefaçon pouvant être sanctionnée pénalement.
+		Les internautes n'ont pas le droit d'utiliser les services et contenus de donner.fr dans les buts suivants :
+		Promouvoir leurs activités
+		Récolter des informations privées des membres
+		Solliciter les membres pour des raisons autres que celles en rapport avec le don
+		Copier ou aspirer le site
+		Les auteurs du contenu rédactionnel restent propriétaires desdits textes.
+		6.2 Supports de communication / promotion de donnons.org<br>
+		Les logos et marques figurant sur le site sont des marques déposées. Leurs reproductions ou modifications sans l'accord préalable de leur auteur/propriétaire sont prohibées. Les éléments graphiques figurant sur la page https://donner.fr/outils-communication sont en libre-service sous réserve de non modification. Toute demande de modification devra être faite via notre formulaire et nous nous ferons un plaisir de vous fournir un support visuel adapté en retour.
+		7. Fraude et abus<br>
+		Le non-respect de l'une ou l'autre des règles peut entraîner:
+		La suppression définitive de votre compte
+		Le blocage de tout ou partie de votre compte
+		Toute fraude ou manquement grave engendrera:
+		Une suppression définitive de son compte
+		Donner.fr se réserve le droit, sans préavis ni justification, de :
+		Supprimer tout profil qui lui semble inapproprié
+		Ignorer toute demande de réactivation de compte, qu’il soit supprimé ou non
+		Supprimer des annonces si celles-ci ne correspondent pas aux règles de publication
+		Un bouton vous permettra de déclarer qu'un membre ne respecte pas l'une ou l'autre des règles. Ainsi l'équipe de modération pourra intervenir et vérifier les informations.
+		N'hésitez pas à nous contacter et à signaler tout abus ou dysfonctionnement en nous écrivant.
+		8. Responsabilité de donner.fr<br>
+		Les annonces de dons figurant sur donnons.org sont contrôlées manuellement ou par un système automatisé avant d'être publiées.
+		Toutefois, il se peut que des internautes peu scrupuleux essaient de proposer des dons afin d'obtenir vos coordonnées ou essaient de vous contacter pour réaliser une vente. Toute l'équipe de donnons est présente pour aider l'utilisateur et le conseiller.
+		8.1 Modération du site et de ses annonces<br>
+		Les annonces de dons figurant sur donnons.org sont contrôlées manuellement ou par un système automatisé avant d'être publiées. Donnons.org ne peut pas filtrer et contrôler tout le contenu avant qu'il soit publié. En conséquence, donnons.org ne peut pas garantir que tous les membres vont respecter les conditions d'utilisation du site. Le site exerce aussi une modération a posteriori sur certaines des publications et se réserve le droit de stopper leurs mises en ligne, sans avoir à s'en justifier auprès du membre.
+		8.2 Limite de responsabilité<br>
+		Donner.fr n'offre aucune garantie de service. Nous ne garantissons pas que le site sera fonctionnel ou accessible à tout moment, qu'il ne comportera pas de bug, qu'il n'y aura pas de panne de serveur, défaillance du réseau, ralentissement, problème de messagerie ou tout autre problème indépendant de notre volonté.
+		Exception faite des données légales, donnons.org ne sera pas tenu responsable si le site devient hors d'usage, si des messages privés sont perdus, si un membre quitte le site ou est supprimé pour une quelconque raison.
+		Donner.fr reçoit un nombre important de mails. Dans le cadre de corrections à apporter ou d’une demande de modération (signalement, bug,...), les administrateurs mettront tout en œuvre pour en effectuer le traitement, mais ils ne peuvent pas garantir qu’une réponse écrite pourra systématiquement être donnée.
+		8.3 Etat des dons<br>
+		La responsabilité de donner.fr ne pourra pas être engagée si le don s'avère inutilisable, défaillant, abîmé ou dangereux.
+		L’équipe de modération du site a le pouvoir de refuser un don si son aspect ou son état nuit au contenu du site.
+		9. Suppression et délai de conservation des données personnelles et d’anonymisation<br>
+		Suppression de compte
+		Un système automatisé du site supprime les comptes après 2 ans d’inactivité. Si vous ne vous êtes pas authentifié sur le site durant deux ans, vous recevrez un e-mail vous invitant à vous connecter dans les plus brefs délais, sans quoi vos données seront supprimées de nos bases de données.
+		Conservation des données personnelles après la suppression du compte
+		Une fois le compte supprimé, les données personnelles seront anonymisées et seront conservées pendant 1 an. Ce principe de conservation limitée des données personnelles est prévu par le RGPD et la loi Informatique et Libertés.
+		10. Évolution et durée du contrat<br>
+		Donner.fr se réserve la possibilité, à tout moment, de modifier tout ou partie des présentes conditions générales d'utilisation (CGU).
+		Les utilisateurs du site sont invités à les consulter régulièrement afin de prendre connaissance des changements apportés.
+		11. Droit applicable et juridiction compétente<br>
+		En cas de litige ou de réclamation émanant de l'internaute, de donnons.org ou d'un tiers et relatifs à l'utilisation du service, seule la version des CGU présentes au moment de l’événement aura force obligatoire entre les parties.
+		La législation française s'applique au présent contrat. Les membres acceptent que tout litige soit réglé devant la justice française. En cas d'absence de résolution amiable d'un litige né entre les parties, Le tribunal compétent est celui de Mulhouse.
+		Lire la politique de confidentialité de donner.fr 
+        </p> </pre></main>
+		
+		{% endblock %}
+	</body>
+
+	{% include('_footer.html.twig') %}
+
+	<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+	<script src="{{ asset('js/script.js') }}"></script>
+</html>

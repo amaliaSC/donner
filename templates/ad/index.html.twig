@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces!
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_home.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block body %}
+
+	<main>
+		<br>
+		<br>
+		<div class="example-wrapper">
+			<h1>Toutes les annonces</h1>
+		</div>
+		<div class="cards">
+			{% for ad in list %}
+				<div class="annonce">
+					<a href="#!"><img src="{{ asset('img/ads/' ~ ad.imageName) }}" alt="Image{{ ad.title }}" width="170" height="280"></a>
+					<div class="card-body">
+						<h4 class="card-title">{{ ad.title }}
+						</h4>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Posté le :
+							{{ ad.createdAt|date('d/m/Y') }}</small>
+					</div>
+					<a href="{{ path('ad_show_one', {id: ad.id}) }}">
+						<button>Consulter le don</button>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

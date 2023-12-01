@@ -1,0 +1,56 @@
+html {
+  --color-dark-dusty-lavender: rgb(97, 59, 95);
+  --color-dusty-lavender: rgb(157, 120, 155);
+  --color-yellow: rgb(245, 223, 78);
+  --color-yellow-hover: rgb(238, 213, 54);
+  --color-dark-blue: rgb(59, 85, 114);
+  --color-blue: rgb(85, 123, 167);
+}
+
+.shadow {
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.438);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  position: relative;
+}
+
+main {
+  min-height: calc(100vh - var(--height-nav));
+  padding-top: calc(var(--height-nav) - 20px );
+}
+
+h1,
+h2,
+h3 {
+  font-family: Pattaya, Roboto, sans-serif;
+}
+
+@media screen and (max-width: 1040px) and (min-width: 950px) {
+  body {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 949px) and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 18px;
+  }
+}

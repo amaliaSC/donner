@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire un don
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_forms.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+	<main>
+		<div class="central_forms">
+			<div class="forms shadow">
+				<h3>Poster une nouvelle annonce</h3>
+
+				{{ form_start(adForm)}}
+				<div class="form_items" id="form_new_ad_adType">
+					{{ form_label(adForm.adType, 'Type d\'annonce') }}
+						{{ form_widget(adForm.adType) }}
+					</div>
+					
+					<div class="form_double_items">
+						<div class="form_items" id="form_new_ad_category">
+							<label>
+							Catégorie
+							</label>
+							<select>
+								{% for category in categories %}
+									<option value="{{ category.id }}">{{ category.title }}</option>
+								{% endfor %}
+							</select>
+						</div>
+
+						<div class="form_items" id="form_new_ad_subCategory">
+							{{ form_label(adForm.subCategory, 'Sous-catégorie') }}
+							{{ form_widget(adForm.subCategory) }}
+						</div>
+					</div>
+
+						<div class="form_items">
+						{{ form_label(adForm.title, 'Titre') }}
+						{{ form_widget(adForm.title) }}
+					</div>
+					<div class="form_items">
+					{{ form_label(adForm.content, 'Description') }}
+						{{ form_widget(adForm.content) }}
+					</div>
+					<div class="form_items" id="form_new_ad_duration">
+					{{ form_label(adForm.duration, 'Durée (en minutes)') }}
+						{{ form_widget(adForm.duration) }}
+					</div>
+					<div class="form_items" id="form_new_ad_conditionAd">
+					{{ form_label(adForm.conditionAd, 'Etat du bien') }}
+						{{ form_widget(adForm.conditionAd) }}
+					</div>
+
+					<div class="form_items search_input">
+						<label>Ville</label>
+							<input name="searchInput" id="searchInput" type="text" placeholder="Rechercher une ville"/>
+						<div>
+							<div class="suggestions"></div>
+						</div>
+					</div>
+
+					<div class="form_items input_file">
+						{{ form_label(adForm.imageFile, 'Photo') }}
+						{{ form_widget(adForm.imageFile) }}
+					</div>
+
+					<div class="container_button">
+						<a href="{{ path('user_profil', {id : app.user.id}) }}" class="cancel">Annuler</a>
+						<button type="submit" class="validation_pair">Ajouter l'annonce</button>
+					</div>
+				{{ form_end(adForm)}}
+				</div>
+			</div>
+		</main>
+
+		
+	<script src="{{ asset('js/script.js') }}"></script>
+	{% endblock %}

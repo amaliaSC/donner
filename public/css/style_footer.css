@@ -1,0 +1,103 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  max-height: 100%;
+  width: 100%;
+  background-color: rgba(157, 120, 155, 0.294);
+  text-align: center;
+}
+
+footer h3 {
+  color: rgb(59, 85, 114);
+  text-align: center;
+  padding: 1.5em;
+}
+
+.reseau_sociaux{
+  margin-top: 1em;
+}
+.reseau_sociaux a {
+  font-size: 2em;
+  padding: 1em;
+  text-decoration: none;
+}
+.facebook{
+  color: rgb(85, 130, 180);
+}
+.instagram{
+  color: rgba(116, 65, 116, 0.712);
+}
+.youtube{
+  color: rgb(182, 31, 31);
+}
+
+.facebook i:hover{
+  color: rgb(62, 138, 226);
+}
+.instagram i:hover{
+  color: rgba(209, 121, 209, 0.863);
+}
+.youtube i:hover{
+  color: rgba(250, 7, 7, 0.788);
+}
+
+.copyright {
+  margin-top: 1em;
+}
+
+.copyright a {
+  text-decoration: none;
+  color: rgb(68, 52, 67)
+}
+.copyright a:hover {
+  text-decoration: underline rgba(245, 223, 78);
+}
+
+.FAQ {
+  max-height: 30em;
+  text-align: center;
+  padding: 1em;
+  display: block;
+  justify-content: space-around;
+  width: 20em;
+}
+.FAQ p{
+  color: black;
+}
+
+details {
+  border: 2px solid rgba(59, 85, 114, 0.425);
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  color: rgb(92, 65, 90);
+  cursor: pointer;
+}
+
+summary {
+  border: 2px solid rgba(157, 120, 155, 0.349);
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 2px solid rgba(157, 120, 155, 0.349);
+  margin-bottom: 0.5em;
+}
+ 
+
+@media screen and (max-width: 767px) {
+  footer{
+    width: 100%;
+    display: block;
+    justify-content: space-around;
+  }
+  .FAQ{
+    margin: 0 auto;
+  }
+}

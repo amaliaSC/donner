@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_forms.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="central_forms">
+			<div class="forms shadow">
+				<h3>Connexion à votre compte</h3>
+				<p>Vous n'avez pas de compte ?
+					<a href="{{ path('app_register') }}">Inscrivez-vous !</a>
+				</p>
+
+				<form method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+
+					{% if app.user %}
+						<div class="mb-3">
+							You are logged in as
+							{{ app.user.username }},
+							<a href="{{ path('app_logout') }}">Logout</a>
+						</div>
+					{% endif %}
+
+					<div class="form_items">
+						<label for="inputEmail">Email</label>
+						<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+					</div>
+
+					<div class="form_items">
+						<label for="inputPassword">Mot de passe</label>
+						<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+					</div>
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+					<div class="form_small_text">
+						<a href="Rien de prévu ici, c'est pour faire genre mdr">Mot de passe oublié ?</a>
+					</div>
+
+					<div class="container_button">
+						<button type="submit" class="validation">Se connecter</button>
+					</div>
+				</form>
+
+			</main>
+		{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails annonce
+{% endblock %}
+
+{% block stylesheets %}<link href="{{ asset('css/style_one_ad.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+
+		<div class="one_ad shadow">
+			<div class="one_ad_titles">
+				<h5>{{ ad.subcategory.category.title }}
+					-
+					{{ ad.subcategory.title }}</h5>
+				<h2>
+					{{ ad.title }}</h2>
+
+			</div>
+
+			<div class="one_ad_container">
+
+				<div class="one_ad_sous_div">
+
+					<p>{{ ad.content }}</p>
+
+					{% if(ad.adType.id == 1) %}
+						<p>Etat du
+							{{ ad.adType.title | lower }}
+							:
+							{{ ad.conditionAd.title }}</p>
+					{% else %}
+						<p>Durée du
+							{{ ad.adType.title }}
+							:
+							{{ ad.duration }}
+							minutes</p>
+					{% endif %}
+					<p>
+						<i class="fas fa-map-marker-alt"></i>
+						{{ ad.city.zipCode }}
+						-
+						{{ ad.city.name }}
+					</p>
+					<p>
+						<i class="far fa-clock"></i>
+						Le
+						{{ ad.createdAt | date("d/m/Y à H:i") }}</p>
+					<p>
+						<i class="fas fa-user"></i>
+						Posté par
+						<a href="{{ path('user_profil', { 'id' : ad.user.id }) }}">{{ ad.user.username }}</a>
+					</p>
+				</div>
+
+				{% if(ad.imageName) %}
+					<div class="one_ad_sous_div one_ad_img">
+						<img src="{{ asset('img/ads/' ~ ad.imageName ) }}">
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="one_ad_manage">
+				{% if(app.user) %}
+
+					{% if(app.user != ad.user) %}
+
+						{% if(ad.status.id == 1) %}
+
+							{% if(app.user.smileyNumber <= 0) %}
+
+								<p>Malheureusement vous ne disposez plus de smiley pour profiter de ce
+									{{ ad.adType.title | lower }}. N'hésitez pas à donner pour recevoir 😊</p>
+
+							{% else %}
+
+								<a class="button" href="{{ path('ad_reserve', {'id' : ad.id}) }}" onclick="return confirm('Vous êtes sur le point de donner un smiley. Êtes vous sûr de vouloir réserver ce {{ ad.adType.title | lower }} ?')">Réserver 😊</a>
+							{% endif %}
+
+						{% else %}
+
+							{% if(app.user == ad.recipientUser) %}
+								<p>Félicition, le
+									{{ ad.adType.title | lower }}
+									de
+									{{ ad.user.username }}
+									a bien été réservé ! 😊</p>
+								<p>Vous pouvez contacter cette personne à l'adresse
+									{{ ad.user.email }}
+									{% if(ad.user.phoneNumber) %}
+										ou au numéro
+										{{ ad.user.phoneNumber }},
+									{% endif %}
+									pour en profiter.</p>
+							{% else %}
+								<p>Désolé, ce
+									{{ ad.adType.title | lower }}
+									a déjà trouvé preneur 😊
+								</p>
+							{% endif %}
+
+						{% endif %}
+
+					{% else %}
+
+						<a class="button delete" href="{{ path('ad_delete', {'id' : ad.id}) }}" onclick="return confirm('Êtes-vous sûr ?')">
+							<i class="fas fa-trash-alt"></i>
+							Supprimer
+						</a>
+						<a class="button update" href="{{ path('ad_modifier', {'id' : ad.id}) }}">
+							<i class="fas fa-pen"></i>
+							Modifier
+						</a>
+
+					{% endif %}
+
+				{% else %}
+					Ce
+					{{ ad.adType.title | lower }}
+					vous intéresse ?
+					<a href="{{ path('app_login') }}">
+						Connectez vous</a>
+					ou
+					<a href="{{ path('app_register') }}">
+						inscrivez-vous</a>
+					gratuitement 😊
+
+				{% endif %}
+
+				{% if is_granted('ROLE_ADMIN') %}
+					<a class="button delete" href="{{ path('ad_delete', {'id' : ad.id}) }}" onclick="return confirm('Êtes-vous sûr ?')">
+							<i class="fas fa-trash-alt"></i>
+							Modération : supprimer
+						</a>
+						<a class="button update" href="{{ path('ad_modifier', {'id' : ad.id}) }}">
+							<i class="fas fa-pen"></i>
+							Modération : modifier
+						</a>
+				{% endif %}
+
+			</div>
+
+		</div>
+
+	</main>
+{% endblock %}

@@ -1,0 +1,215 @@
+.baniere {
+  background-image: url("../img/donner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.description {
+  position: absolute;
+  top: 6vh;
+  left: 25vw;
+  font-family: Pattaya, Roboto, sans-serif;
+  font-size: 1.6em;
+  color: rgb(102, 79, 101);
+}
+
+.description figcaption {
+  font-size: 0.6em;
+  font-family: Roboto, sans-serif;
+}
+
+.baniere_link {
+  position: absolute;
+  bottom: 3vh;
+  right: 3vw;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  height: fit-content;
+}
+
+.baniere_link button {
+  font-size: 1em;
+  padding: 1em;
+  margin: 1em;
+  width: 15em;
+  background-color: rgba(238, 213, 54, 0.575);
+  border: 2px solid rgb(59, 85, 114);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.baniere_link button:hover {
+  background-color: rgba(238, 213, 54, 0.8);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.438);
+}
+
+.annonces {
+  margin: auto;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.959);
+  width: 80%;
+}
+
+.annonces h1 {
+  text-align: center;
+  color: rgba(157, 120, 155, 255);
+  font-size: 1.7em;
+  padding: 1em;
+}
+
+.annonce {
+  border: 2px solid rgba(157, 120, 155, 0.308);
+  padding: 1em;
+  margin: 1em;
+  width: 15em;
+  box-shadow: 1px 1px 15px rgba(83, 60, 82, 0.507);
+}
+.annonce:hover {
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.938);
+}
+.annonce h2 {
+  color: rgba(138, 172, 211, 255);
+  font-size: 1.3em;
+}
+
+.annonce img {
+  width: 15em;
+}
+
+.annonce button {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 1em;
+  color: rgb(59, 38, 58);
+  background-color: rgba(157, 120, 155, 0.26);
+  border: 2px solid rgba(245, 223, 78, 255);
+  border-radius: 5px;
+  width: 18.5em;
+  text-align: center;
+}
+
+.annonce button:hover {
+  border: 2px solid rgb(105, 141, 182);
+  color: rgb(105, 141, 182);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.annonces_link_see_last_ads {
+  text-align: center;
+}
+
+.annonces_link_see_last_ads button {
+  color: rgb(59, 38, 58);
+  background-color: var(--color-yellow);
+  font-size: 0.9em;
+  padding: 1em;
+  margin: 2em;
+  width: 15em;
+  border: 2px solid var(--color-dark-blue);
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 6%;
+  font-weight: bold;
+}
+
+.annonces_link_see_last_ads button:hover {
+  background-color: var(--color-yellow-hover);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.438);
+}
+
+.categories_button h1 {
+  text-align: center;
+  color: rgba(157, 120, 155, 255);
+  font-size: 1.7em;
+  padding: 1em;
+}
+
+.categories_button_container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.categories_button_container a {
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.7em 1em;
+  min-width: 150px;
+  width: 10%;
+  max-width: 300px;
+  height: 13vh;
+  max-height: 13vh;
+  transition: all 0.3s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.categories_button_container a:hover {
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.8);
+  transform: scale(1.2);
+}
+
+.categories_button_container a img {
+  max-height: 130%;
+}
+
+.categories_button_container a h4 {
+  font-size: 1.2em;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+@media screen and (max-width: 767px) {
+  .baniere {
+    background-image: url("../img/donner_mediaqueries.png");
+    height: 65vh;
+    min-width: 100vw;
+    margin-top: 2em;
+    padding: 0;
+    position: relative;
+  }
+
+  .description {
+    position: absolute;
+    top: 5vh;
+    left: 15vw;
+    font-family: Pattaya, Roboto, sans-serif;
+    font-size: 1.6em;
+    color: rgb(102, 79, 101);
+  }
+
+  .baniere_link {
+    position: absolute;
+    bottom: 3vh;
+    right: 3vw;
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    height: fit-content;
+  }
+
+  .baniere_link button {
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 1em;
+    width: 13em;
+  }
+}

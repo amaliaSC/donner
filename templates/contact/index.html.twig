@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_forms.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+	<main>
+		<div class="central_forms">
+			<div class="forms shadow">
+				<h3>Nous contacter</h3>
+
+				{{ form_start(formContact)}}
+				<div class="form_items" id="form_new_add_addType">
+					{{ form_label(formContact.email, "Votre email") }}
+					{{ form_widget(formContact.email) }}
+					</div>
+					
+					
+
+						<div class="form_items" id="form_new_add_subCategory">
+							{{ form_label(formContact.message, "Votre message") }}
+							{{ form_widget(formContact.message) }}
+						</div>
+				
+
+					<div class="container_button">
+						<a href="{{ path('default')}}" class="cancel">Annuler</a>
+						<button type="submit" class="validation_pair">Envoyer le message</button>
+					</div>
+                    
+				{{ form_end(formContact)}}
+				</div>
+		</div>
+	</main>
+	{% endblock %}

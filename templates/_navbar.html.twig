@@ -1,0 +1,58 @@
+<nav>
+	<div class="navbar_mobile">
+
+		<div class="title">
+			<a href="{{ path('default') }}">
+				<h1>
+					Donner
+					<i class="fas fa-hand-holding-heart"></i>
+				</h1>
+			</a>
+		</div>
+
+		<div class="menu_hamburger">
+			<i class="fas fa-bars fa-2x"></i>
+		</div>
+
+	</div>
+
+	<div class="search">
+
+		<form method="POST" action="{{ path('ad_search', {'page':1}) }}">
+			<div class="form_inputs">
+				<input type="search" id="search" name="search" placeholder="Rechercher">
+
+				<input type="search" id="search_location" name="search_location" placeholder="Où ?">
+			</div>
+			
+				<button type="submit">
+					<i class="fas fa-search"></i>
+				</button>
+		</form>
+	</div>
+
+	<div class="link">
+		<a href="{{ path('ad_new') }}">
+			<i class="fas fa-plus"></i>
+			Faire un don</a>
+		{% if app.user %}
+			<a href="{{ path('user_profil', {id : app.user.id}) }}">
+				<i class="fas fa-user"></i>
+				Mon Compte</a>
+		{% endif %}
+		{% if(app.user) %}
+			<a href="{{ path('app_logout') }}">
+				<i class="fas fa-sign-out-alt"></i>
+				Déconnexion</a>
+		{% else %}
+			<a href="{{ path('app_register') }}">
+				<i class="fas fa-user-plus"></i>
+				Inscription</a>
+			<a href="{{ path('app_login') }}">
+				<i class="fas fa-user"></i>
+				Connexion</a>
+		{% endif %}
+	</div>
+
+
+</nav>

@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Donner.fr
+{% endblock %}
+
+{% block body %}
+
+	<main>
+		{% for message in app.flashes('message_send_success') %}
+			<div class="alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		<section class="baniere">
+
+			<figure class="description">
+				<blockquote>
+					Donner sans se souvenir
+					<br>
+					et recevoir sans oublier
+				</blockquote>
+			</figure>
+
+
+			<div class="baniere_link">
+				<div>
+					<a href="{{ path('ad_new') }}">
+						<button>
+							<b>Faire un don</b>
+						</button>
+					</a>
+				</div>
+				<div class="navig_annonces">
+					<a href="{{ path('ad_show_all', {page : 1}) }}">
+						<button>
+							<b>Toutes les annonces</b>
+						</button>
+					</a>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="categories_button">
+			<h1>
+				Annonces par catégories
+			</h1>
+			<div class="categories_button_container">
+				{% for category in categories %}
+					<a class="shadow" href="{{ path('ad_by_category', {'id' : category.id }) }}">
+
+						<img src="{{ asset('img/category/' ~ category.title ~ '.png' ) }}" alt="Image catégorie {{ category.title }}">
+						<h4>{{ category.title }}</h4>
+
+					</a>
+				{% endfor %}
+			</div>
+		</section>
+
+
+		<section class="annonces">
+
+			<div class="new">
+				<h1>
+					Dernières annonces postées
+				</h1>
+			</div>
+
+			<div class="cards">
+				{% for ad in list %}
+
+					<a class="card shadow" href="{{ path('ad_show_one', {'id' : ad.id} ) }}">
+
+						<div class="ad_img">
+							<img src="{{ asset('img/ads/' ~ ad.imageName ) }}" alt="Image {{ ad.title }}">
+						</div>
+
+						<div class="ad_txt">
+							<h2>{{ ad.title }}</h2>
+
+							<div class="ad_txt_details">
+								<span>
+									<i class="fas fa-map-marker-alt"></i>
+									{{ ad.city.department.number }}
+								</span>
+								<span>
+									<i class="far fa-clock"></i>
+									{{ ad.createdAt | date('d/m/y') }}
+								</span>
+							</div>
+						</div>
+
+					</a>
+
+				{% endfor %}
+			</div>
+
+			<div class="annonces_link_see_last_ads">
+				<a href="{{ path('ad_show_all', {page : 1}) }}">
+					<button>Voir toutes les annonces</button>
+				</a>
+			</div>
+
+		</section>
+	</main>
+{% endblock %}

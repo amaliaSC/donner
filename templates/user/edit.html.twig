@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un compte
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_forms.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+	<main>
+	
+			<div class="forms shadow">
+				<h3>Modifier votre compte</h3>
+				
+				<div class="image_user" src="" alt="First slide" /></div>
+
+				{{ form_start(editUserForm) }}
+
+				<div class="form_items">
+					{{ form_label(editUserForm.username, 'Pseudo') }}
+					{{ form_widget(editUserForm.username) }}
+				</div>
+				<div class="form_items">
+					{{ form_label(editUserForm.email, 'Email') }}
+					{{ form_widget(editUserForm.email) }}
+				</div>
+				<div class="form_items">
+					{{ form_label(editUserForm.phoneNumber, 'Numéro de téléphone') }}
+					{{ form_widget(editUserForm.phoneNumber) }}
+				</div>
+				{# <div class="form_items">
+					{{ form_label(editUserForm.password, 'Mot de passe') }}
+					{{ form_widget(editUserForm.password) }}
+				</div>
+
+				<div class="form_items">
+					{{ form_label(editUserForm.imageFile, 'Photo de Profil') }}
+					{{ form_widget(editUserForm.imageFile) }}
+				</div> #}
+
+
+				<div class="container_button">
+						<a href="{{ path('user_profil', {id : app.user.id}) }}" class="cancel">Annuler</a>
+						<button type="submit" class="validation_pair">Enregistrer les modifications</button>
+					</div>
+
+				{{ form_end(editUserForm) }}
+
+				
+				</div>
+
+		</main>
+	{% endblock %}

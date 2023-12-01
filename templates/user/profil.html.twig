@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte
+{% endblock %}
+
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_profil.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('css/style_home.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block body %}
+
+	<main>
+
+		<div class="profil">
+
+			{% if app.user == user %}
+				<h1>
+				<i class="far fa-user-circle"></i>
+				Bienvenue sur votre compte
+			</h1>
+			{% else %}
+				<h1>
+				<i class="far fa-user-circle"></i>
+				Profil de {{ user.username }}
+			</h1>
+			{% endif %}
+			
+
+			<div class="profil_info">
+
+				<div class="img_user">
+					<img src="{{ asset('img/users/' ~ user.imageName) }}" alt="Image">
+				</div>
+
+				<div class="info_user">
+					<p>
+						<b>Pseudo : </b>
+						{{ user.username }}</p>
+
+					{% if app.user == user %}
+						<p>
+							<b>
+								Email : </b>
+							{{ user.email }}
+						</p>
+						<p>
+							<b>Numero de téléphone : </b>
+							{{ user.phoneNumber }}
+						</p>
+					{% endif %}
+					<p>
+						<b>Dons postés : </b>
+						{{ user.ads | length }}<i class="fas fa-hand-holding-heart"></i>
+					</p>
+					<p>
+						<b>Nombre de Smiley :</b>
+						{{ user.smileyNumber }}<i class="far fa-smile-beam"></i>
+					</p>
+				</div>
+
+			</div>
+
+
+			<div class="profil_link">
+				<div class="modif_compt">
+					{% if app.user == user %}
+						<a href="{{ path('user_edit_profil') }}">Modifier mon compte</a>
+					{% endif %}
+				</div>
+
+
+			</div>
+
+			<div class="voir_don">
+				<h2>Dons postés</h2>
+			</div>
+			<div class="cards">
+				{% if user.ads | length > 0 %}
+					{% for ad in user.ads %}
+
+						<a class="card shadow" href="{{ path('ad_show_one', {'id' : ad.id} ) }}">
+
+							<div class="ad_img">
+								<img src="{{ asset('img/ads/' ~ ad.imageName ) }}" alt="Image {{ ad.title }}">
+							</div>
+
+							<div class="ad_txt">
+								<h2>{{ ad.title }}</h2>
+
+								<div class="ad_txt_details">
+									<span>
+										<i class="fas fa-map-marker-alt"></i>
+										{{ ad.city.department.number }}
+									</span>
+									<span>
+										<i class="far fa-clock"></i>
+										{{ ad.createdAt | date('d/m/y') }}
+									</span>
+								</div>
+							</div>
+
+						</a>
+
+					{% endfor %}
+				{% else %}
+					{% if app.user == user %}
+						<p class="ads_informations">Vous n'avez pas encore d'annonce à afficher. N'hésitez plus, proposer vos services ou dons à la communauté :
+							<a href="{{ path('ad_new') }}">ajouter une annonce</a>.
+						</p>
+					{% else %}
+						<p class="ads_informations">Il n'y pas encore d'annonce à afficher.
+						</p>
+					{% endif %}
+				{% endif %}
+			</div>
+
+			<div class="voir_don">
+				<h2>Dons réservés</h2>
+			</div>
+			<div class="cards">
+				{% if user.receivedAds | length > 0 %}
+					{% for ad in user.receivedAds %}
+
+						<a class="card shadow" href="{{ path('ad_show_one', {'id' : ad.id} ) }}">
+
+							<div class="ad_img">
+								<img src="{{ asset('img/ads/' ~ ad.imageName ) }}" alt="Image {{ ad.title }}">
+							</div>
+
+							<div class="ad_txt">
+								<h2>{{ ad.title }}</h2>
+
+								<div class="ad_txt_details">
+									<span>
+										<i class="fas fa-map-marker-alt"></i>
+										{{ ad.city.department.number }}
+									</span>
+									<span>
+										<i class="far fa-clock"></i>
+										{{ ad.createdAt | date('d/m/y') }}
+									</span>
+								</div>
+							</div>
+
+						</a>
+
+					{% endfor %}
+				{% else %}
+					{% if app.user == user %}
+						<p class="ads_informations">Vous n'avez pas encore profité de vos smileys ! Si vous souhaitez profiter d'un service ou bénéficier d'un don, n'hésitez plus :
+							<a href="{{ path('ad_show_all', {page : 1}) }}">voir les dernières annonces postées</a>.
+						</p>
+					{% else %}
+						<p class="ads_informations">Il n'y pas encore d'annonce à afficher.
+						</p>
+					{% endif %}
+				{% endif %}
+			</div>
+
+		</main>
+
+	{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style_forms.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	<main>
+		<div class="side_forms">
+			<div class="forms shadow">
+				<h3>Créez votre compte</h3>
+				<p>Vous avez déja un compte ?
+					<a href="{{ path('app_login') }}">Connectez-vous !</a>
+				</p>
+
+				{{ form_start(registrationForm) }}
+
+				<div class="form_items">
+					{{ form_label(registrationForm.username, 'Pseudo') }}
+					{{ form_widget(registrationForm.username) }}
+				</div>
+				<div class="form_items">
+					{{ form_label(registrationForm.email, 'Email') }}
+					{{ form_widget(registrationForm.email) }}
+				</div>
+				<div class="form_items">
+					{{ form_label(registrationForm.phoneNumber, 'Numéro de téléphone') }}
+					{{ form_widget(registrationForm.phoneNumber) }}
+				</div>
+				<div class="form_items">
+					{{ form_label(registrationForm.password, 'Mot de passe') }}
+					{{ form_widget(registrationForm.password) }}
+				</div>
+
+				<div class="form_items input_file">
+					{{ form_label(registrationForm.imageFile, 'Photo de profil') }}
+					{{ form_widget(registrationForm.imageFile) }}
+				</div>
+
+				<div class="form_agree_terms">
+					{{ form_widget(registrationForm.agreeTerms) }}
+                    </div>
+				<div class="container_button">
+					<button type="submit" class="validation">S'inscrire</button>
+				</div>
+
+				{{ form_end(registrationForm) }}
+
+				</div>
+			</div>
+
+			<div class="side_img">
+				<div class="side_img_txt shadow">
+					<h4>Donnez sans compter</h4>
+					<p>Donnez, récupérez, recyclez, partagez, en échangeant des sourires ! Tout est <span class="bold">gratuit</span>. 😊</p>
+					<p>Vous posséder des objets devenus trop emcombrants, inutiles ? Ne les jettez pas, donnez-les !</p>
+					<p>Vous avez du temps libre, vous souhaitez partagez des connaissances, savoir-faire, bénévolement ? Proposez vos services à la communauté !</p>
+					<p>Dès votre inscription vous posséder 2 smileys que vous pouvez utiliser, quand vous voulez, comme vous voulez.</p>
+					<p>Lorsque que quelqu'un récupère un de vos dons, ou profite de l'un de vos services, il vous donne un smiley en échange !</p>
+					<p>Idem, quand vous récupérez un don ou que vous profitez d'un service, vous donnez un smiley en retour.</p>
+					<h5>Inscrivez-vous et partagez des sourires ! 😊</h5>
+				</div>
+			</div>
+
+
+		</main>
+	{% endblock %}

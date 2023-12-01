@@ -1,0 +1,99 @@
+main {
+  background-image: url("../img/fond_test.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profil {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  margin: 3em;
+  display: block;
+  justify-content: space-around;
+  padding: 3em;
+}
+
+.profil h1 {
+  color: rgb(85, 123, 167);
+  text-align: center;
+}
+
+.profil a {
+  text-decoration: none;
+  color: black;
+}
+
+.profil_info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2em;
+}
+
+.img_user img {
+  background-color: rgba(255, 255, 255, 0.157);
+  margin: 0.5em;
+  max-width: 300px;
+}
+
+.info_user p {
+  padding: 0.5em;
+}
+
+.info_user i {
+  font-size: 30px;
+  padding: 0.5em;
+  color: rgba(197, 174, 21, 0.774);
+}
+
+.profil_link {
+  display: block;
+  margin: 1em;
+  line-height: 3em;
+  color: rgb(134, 83, 133);
+}
+
+.modif_compt{
+    text-align: center;
+}
+
+.profil_link a {
+  padding: 0.5em;
+  border: 2px solid rgb(85, 123, 167);
+  background-color: rgba(157, 120, 155, 0.26);
+  color: rgb(85, 123, 167);
+  border-radius: 0.2em;
+}
+
+.profil_link a:hover {
+  background-color: rgba(157, 120, 155, 0.281);
+  background-color: rgba(157, 120, 155, 0.4);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.438);
+}
+
+@media screen and (max-width: 1270px) and (min-width: 768px) {
+  
+  .profil_info{
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .profil {
+    width: 60%;
+    min-height: 50%;
+    margin: 3em;
+  }
+
+  .profil_info {
+    display: block;
+  }
+
+  .img_user {
+    margin: auto;
+  }
+}

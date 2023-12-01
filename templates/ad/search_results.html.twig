@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resultat recherche
+{% endblock %}
+
+{% block stylesheets %}<link href="{{ asset('css/style_search.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+
+		<div class="search_results">
+
+			<h2>Résultats de votre recherche "{{ search }}"
+			</h2>
+
+			{% if(ads is not empty) %}
+				{% if resultsNum == 1 %}
+					<p>1 seul résultat correspond à votre recherche</p>
+				{% else %}
+					<p>{{ resultsNum }}
+						résultats correspondent à votre recherche</p>
+				{% endif %}
+				<section class="ads">
+					<div class="cards">
+
+						{% for ad in ads %}
+
+							<a class="card shadow" href="{{ path('ad_show_one', {'id' : ad.id} ) }}">
+
+								<div class="ad_img">
+									<img src="{{ asset('img/ads/' ~ ad.image_name ) }}" alt="Image {{ ad.title }}">
+								</div>
+
+								<div class="ad_txt">
+									<h2>{{ ad.title }}</h2>
+
+									<div class="ad_txt_details">
+										<span>
+											<i class="fas fa-map-marker-alt"></i>
+											{{ ad.number }}
+										</span>
+										<span>
+											<i class="far fa-clock"></i>
+											{{ ad.created_at | date('d/m/y') }}
+										</span>
+									</div>
+								</div>
+
+							</a>
+
+						{% endfor %}
+
+					</div>
+
+					<div class="ad_search_navigation">
+						{% if(previous) %}
+							<a href="{{ path('ad_search', {page: actualPage - 1}) }}">
+								<i class="fas fa-chevron-left"></i>
+								Page précédente</a>
+							<span>
+								|
+							</span>
+						{% endif %}
+						Page
+						{{ actualPage }}
+						{% if(next) %}
+							<span>
+								|
+							</span>
+							<a href="{{ path('ad_search', {'page': actualPage + 1}) }}">Page suivante
+								<i class="fas fa-chevron-right"></i>
+							</a>
+						{% endif %}
+					</div>
+
+				</section>
+			{% else %}
+				<p>Désolé, il n'y a aucun résultat à afficher, essayez avec une autre orthographe, un simple mot clé, ou élargissez la localisation.</p>
+			{% endif %}
+
+
+		</div>
+
+	</main>
+{% endblock %}
