@@ -30,17 +30,17 @@ class AdRepository extends ServiceEntityRepository
 
         $sql = '
         SELECT count(ad.id)
-        FROM ad 
-        INNER JOIN sub_category subcat ON ad.sub_category_id = subcat.id 
-                INNER JOIN category cat ON subcat.category_id = cat.id 
-                INNER JOIN city cit ON cit.id = ad.city_id 
-                INNER JOIN department dep ON dep.id = cit.department_id 
-                INNER JOIN region reg ON reg.id = dep.region_id 
-                WHERE ad.status_id = 1 
+        FROM ad
+        INNER JOIN sub_category subcat ON ad.sub_category_id = subcat.id
+                INNER JOIN category cat ON subcat.category_id = cat.id
+                INNER JOIN city cit ON cit.id = ad.city_id
+                INNER JOIN department dep ON dep.id = cit.department_id
+                INNER JOIN region reg ON reg.id = dep.region_id
+                WHERE ad.status_id = 1
                 AND (ad.title LIKE :keyword OR ad.content LIKE :keyword
-                     OR cat.title LIKE :keyword OR subcat.title LIKE :keyword ) 
+                     OR cat.title LIKE :keyword OR subcat.title LIKE :keyword )
                      AND (ad.title LIKE :keyword OR ad.content LIKE :keyword
-                     OR cat.title LIKE :keyword OR subcat.title LIKE :keyword ) 
+                     OR cat.title LIKE :keyword OR subcat.title LIKE :keyword )
                      AND ( cit.name LIKE :location OR cit.zip_code LIKE :location OR dep.name LIKE :location OR reg.name LIKE :location )
             ';
         $stmt = $conn->prepare($sql);
