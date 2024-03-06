@@ -25,7 +25,7 @@ class ContactController extends AbstractController
         {
             $message = (new \Swift_Message('Formulaire de contact'))
                 ->setFrom($contact->getEmail())
-                ->setTo('contact@test.com')
+                ->setTo('amaliasabou@yahoo.fr')
                 ->setBody(
                     $this->renderView(
                         // templates/emails/registration.html.twig
@@ -33,11 +33,11 @@ class ContactController extends AbstractController
                         ['contact' => $contact]
                     ),
                     'text/html'
-                ); 
-                   
-        $mailer->send($message);  
+                );
+            //contact@test.com
+        $mailer->send($message);
 
-        $this->addFlash('message_send_success', 'Message envoyé avec succes');   
+        $this->addFlash('message_send_success', 'Message envoyé avec succes');
         return $this->redirectToRoute('default');
         }
 

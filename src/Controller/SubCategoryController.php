@@ -20,7 +20,8 @@ class SubCategoryController extends AbstractController
     {
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
 
-        $subcategories = $this->getDoctrine()->getRepository(SubCategory::class)->findBy(["category" => $category], ["id" => "ASC"]);
+        $subcategories = $this->getDoctrine()->getRepository(SubCategory::class)->findBy(["category" => $category],
+         ["id" => "ASC"]);
 
 
         return $this->render('sub_category/showByCategory.html.twig', [
